@@ -3,65 +3,46 @@
 @section('content')
 <div class="row justify-content-center">
 	<div class="col-xl-12 col-lg-12 col-md-12">
-		<div class="card shadow-sm my-5">
-			<div class="card-body p-0">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="login-form">
-							<div class="text-center">
-								<h1 class="h4 text-gray-900 mb-4">Add Vendor</h1>
-							</div>
-                            <br>
-                            @if(Session::has('vendor_update'))
-                            <span>{{Session::get('vendor_update')}}</span>
-                            @endif
-                            <br>
-                            <br>
-                            <br>
-                            <form action="{{route('update.vendor')}}" method="POST" enctype="multipart/form-data">
-								@csrf
-                                <input type= "hidden" name="id" value="{{$vendors->id}}">
-								<div class="form-group">
-									<div class="form-row">
-										<div class="col-mstore-productd-6">
-											<input type="text" class="form-control" placeholder="Enter Vendor Name" name="vendor_name" value="{{$vendors->vendor_name}}">
-                                        </div>
-									</div>
-								</div>
-
-								<div class="form-group">
-									<div class="form-row">
-										<div class="col-md-4">
-											<input type="text" class="form-control" placeholder="Enter Vendor Number" name="vendor_num" value="{{$vendors->vendor_num}}">
-								        </div>
-                                    </div>
-                                </div>
-
-			                    <div class="form-group">
-									<div class="form-row">
-										<div class="col-mstore-productd-6">
-											<input type="text" class="form-control" placeholder="Enter Vendor Email" name="vendor_email" value="{{$vendors->vendor_email}}">
-										</div>
-									</div>
-								</div>
-
-                                <div class="form-group">
-									<div class="form-row">
-										<div class="col-mstore-productd-6">
-											<input type="text" class="form-control" placeholder="Enter Vendor Address" name="vendor_address" value="{{$vendors->vendor_address}}">
-										</div>
-									</div>
-								</div>
-							
-
-								<div class="form-group">
-									<button type="submit" class="btn btn-primary btn-block">Submit</button>
-								</div>
-							</form>
-							<div class="text-center">
-							</div>
-						</div>
+		<div class="row">
+			<div class="col-lg-12 mb-4">
+				<!-- Simple Tables -->
+				<div class="card">
+					<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+						<h2 class="m-0 font-weight-bold text-primary">Vendors List</h2>
+						<input type="text" placeholder="Search By Phone" v-model="searchTerm" class="form-control" style="width: 300px;margin-right: -900px;" />
+			
 					</div>
+                    @if(Session::has('delete_vendor'))
+                    <span>{{Session::get('delete_vendor')}}</span>
+                    @endif
+					<div class="table-responsive">
+						<table class="table align-items-center table-flush">
+							<thead class="thead-light">
+								<tr>
+                                    <th>Vendor Id</th>
+									<th>Vendor Name</th>
+                                    <th>Vendor Number</th>
+									<th>Vendor Email</th>
+                                    <th>Vendor Address</th>
+                                    <th>Action</th>
+								</tr>
+                                @foreach($vendors as $vendors)
+                                <tr>
+                                    <td>{{ $vendors->id}}</td>
+									<td>{{ $vendors->vendor_name}}</td>
+                                    <td>{{ $vendors->vendor_num}}</td>
+									<td>{{ $vendors->vendor_email}}</td>
+                                    <td>{{ $vendors->vendor_address}}</td>
+                                    <td>
+                                        <a href="/DeleteVendorProfile/{{$vendors->id}}">Delete</a>
+                                        <a href="/EditForm/{{$vendors->id}}">Update</a>
+                                    </td>
+                                </tr>
+                                @endforeach
+							</thead>
+						</table>
+					</div>
+					<div class="card-footer"></div>
 				</div>
 			</div>
 		</div>

@@ -56,12 +56,13 @@ Route::get('/stock', [App\Http\Controllers\ProductController::class, 'productSto
 
 Route::get('/AddVendorForm', [App\Http\Controllers\VendorInformationController::class, 'AddVendorProfile'])->name('AddVendorForm');
 Route::post('/AddVendorForm', [App\Http\Controllers\VendorInformationController::class, 'SaveVendor'])->name('save.vendor');
-
 Route::get('/ViewVendorForm', [App\Http\Controllers\VendorInformationController::class, 'ViewVendorProfile'])->name('ViewVendorForm');
-//Route::get('/ListVendorForm', [App\Http\Controllers\VendorInformationController::class, 'ListVendorDetails'])->name('UpdateVendorForm');
-Route::get('/UpdateVendorForm/{id}', [App\Http\Controllers\VendorInformationController::class, 'UpdateVendorProfile'])->name('UpdateVendorForm');
 
 Route::get('/DeleteVendorProfile/{id}', [App\Http\Controllers\VendorInformationController::class, 'DeleteVendorProfile'])->name('DeleteVendorProfile');
+
+Route::get('/UpdateVendorForm', [App\Http\Controllers\VendorInformationController::class, 'UpdateVendorProfile'])->name('UpdateVendorForm');
+Route::get('/EditForm/{id}', [App\Http\Controllers\VendorInformationController::class, 'EditVendors'])->name('EditForm');
+Route::post('/EditVendorForm', [App\Http\Controllers\VendorInformationController::class, 'SaveEdit'])->name('update.vendor');
 
 Auth::routes();
 

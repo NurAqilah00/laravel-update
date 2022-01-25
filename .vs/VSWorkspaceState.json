@@ -1,16 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\bootstrap",
+    "\\app",
+    "\\app\\Http",
+    "\\app\\Http\\Controllers",
+    "\\app\\Models",
     "\\database",
-    "\\public",
     "\\resources",
     "\\resources\\views",
     "\\resources\\views\\layouts",
-    "\\storage",
-    "\\storage\\app",
-    "\\tests"
+    "\\routes"
   ],
-  "SelectedNode": "\\resources\\views\\order_details.blade.php",
+  "SelectedNode": "\\resources\\views\\layouts\\app.blade.php",
   "PreviewInSolutionExplorer": false
 }

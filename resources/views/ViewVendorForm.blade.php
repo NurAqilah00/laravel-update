@@ -12,9 +12,6 @@
 						<input type="text" placeholder="Search By Phone" v-model="searchTerm" class="form-control" style="width: 300px;margin-right: -900px;" />
 			
 					</div>
-                    @if(Session::has('delete_vendor'))
-                    <span>{{Session::get('delete_vendor')}}</span>
-                    @endif
 					<div class="table-responsive">
 						<table class="table align-items-center table-flush">
 							<thead class="thead-light">
@@ -24,7 +21,6 @@
                                     <th>Vendor Number</th>
 									<th>Vendor Email</th>
                                     <th>Vendor Address</th>
-                                    <th>Action</th>
 								</tr>
                                 @foreach($vendors as $vendors)
                                 <tr>
@@ -33,10 +29,6 @@
                                     <td>{{ $vendors->vendor_num}}</td>
 									<td>{{ $vendors->vendor_email}}</td>
                                     <td>{{ $vendors->vendor_address}}</td>
-                                    <td>
-                                        <a href="/DeleteVendorProfile/{{$vendors->id}}">Delete</a>
-                                        <a href="/UpdateVendorForm/{{$vendors->id}}">Update</a>
-                                    </td>
                                 </tr>
                                 @endforeach
 							</thead>

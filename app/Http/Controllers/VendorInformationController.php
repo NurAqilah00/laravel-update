@@ -26,31 +26,29 @@ class VendorInformationController extends Controller
     {
         $vendors = DB::table('vendors')->get();
         return view('ViewVendorForm',compact('vendors'));
-    }
+    }  
 
-    public function ListVendorDetails()
+    public function UpdateVendorProfile()
     {
         $vendors = DB::table('vendors')->get();
         return view('UpdateVendorForm',compact('vendors'));
     }
 
-
-    public function UpdateVendorProfile($id)
+    public function EditVendors($id)
     {
-        $vendors = DB::table('vendors')->where ('id',$id)->first();
-        return view('UpdateVendorForm',compact('vendors'));
+        $vendors = DB::table('vendors')->where('id',$id)->first();
+        return view('EditForm',compact('vendors'));
     }
 
-    public function UpdateVendor(Request $request)
-    {
-        DB::table('vendors')->where ('id',$request->id)->update([
+    public function SaveEdit(Request $request){
+
+        DB::table('vendors')->where('id',$request->id)->update([
             'vendor_name'=>$request->vendor_name,
             'vendor_num'=>$request->vendor_num,
             'vendor_email'=>$request->vendor_email,
             'vendor_address'=>$request->vendor_address
         ]);
-            return back()->with('vendor_update', 'Vendor updated successfully!!');
-
+        return back()->with('vendor_update', 'Vendor updated successfully!!');
     }
 
     public function DeleteVendorProfile($id)
