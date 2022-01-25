@@ -8,9 +8,11 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="login-form">
-							<div class="text-center">
-								<h1 class="h4 text-gray-900 mb-4">Add Vendor</h1>
-							</div>
+							<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+						    <h2 class="m-0 font-weight-bold text-primary">Add Vendor Information</h2>
+						    <input type="text" placeholder="Search By Phone" v-model="searchTerm" class="form-control" style="width: 300px;margin-right: -900px;" />
+			
+					        </div>
 
                             @if(Session::has('vendor_add'))
                             <span>{{Session::get('vendor_add')}}</span>
