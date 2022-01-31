@@ -2,15 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\app",
-    "\\app\\Http\\Controllers",
     "\\app\\Models",
     "\\database",
     "\\database\\migrations",
     "\\resources",
     "\\resources\\views",
-    "\\resources\\views\\layouts",
-    "\\routes"
+    "\\resources\\views\\layouts"
   ],
-  "SelectedNode": "\\resources\\views\\AddVendorForm.blade.php",
   "PreviewInSolutionExplorer": false
 }
