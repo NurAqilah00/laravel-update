@@ -2,6 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\app",
+    "\\app\\Http",
+    "\\app\\Http\\Controllers",
     "\\app\\Models",
     "\\database",
     "\\database\\migrations",
@@ -9,6 +11,6 @@
     "\\resources\\views",
     "\\resources\\views\\layouts"
   ],
-  "SelectedNode": "\\resources\\views\\products.blade.php",
+  "SelectedNode": "\\app\\Http\\Controllers\\VendorInformationController.php",
   "PreviewInSolutionExplorer": false
 }
